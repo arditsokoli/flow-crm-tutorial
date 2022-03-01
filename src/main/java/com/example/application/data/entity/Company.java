@@ -1,6 +1,8 @@
 package com.example.application.data.entity;
 
 import com.example.application.data.AbstractEntity;
+import org.hibernate.annotations.Formula;
+
 import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.Entity;
@@ -9,6 +11,14 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Company extends AbstractEntity {
+
+
+    @Formula("(select count(c.id) from Contact c where c.company_id = id)")
+    private int employeeCount;
+
+    public int getEmployeeCount(){
+        return employeeCount;
+    }
     @NotBlank
     private String name;
 
