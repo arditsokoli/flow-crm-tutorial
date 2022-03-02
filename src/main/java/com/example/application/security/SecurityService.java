@@ -17,7 +17,7 @@ public class SecurityService {
         SecurityContext context = SecurityContextHolder.getContext();
         Object principal = context.getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
-            return (UserDetails) principal;
+            return (UserDetails) context.getAuthentication().getPrincipal();
         }
         // Anonymous or no authentication.
         return null;
