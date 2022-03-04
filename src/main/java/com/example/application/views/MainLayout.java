@@ -18,6 +18,7 @@ public class MainLayout extends AppLayout {
     private final SecurityService securityService;
 
     public MainLayout(SecurityService securityService) {
+
         this.securityService = securityService;
         createHeader();
         createDrawer();
